@@ -36,7 +36,7 @@ export default function App(props) {
     updateEmployee,
   } = useEmployees();
 
-  const [startDate, setStartDate] = React.useState(new Date());
+  const [dob, setDob] = React.useState(new Date(selectedEmployeeToEdit?.date_of_birth) || new Date());
   const [photo, setPhoto] = React.useState(null);
 
   const { control, handleSubmit } = useForm({
@@ -53,7 +53,7 @@ export default function App(props) {
       age: evt.age,
       address: evt.address,
       email: evt.email,
-      date_of_birth: startDate,
+      date_of_birth: dob,
       photo: photo,
     };
     selectedEmployeeToEdit
@@ -150,9 +150,10 @@ export default function App(props) {
           </Grid>
           <Grid item xs={6}>
             <DatePicker
-              selected={startDate}
-              onChange={(date) => setStartDate(date)}
+              selected={dob}
+              onChange={(date) => setDob(date)}
               defaultValue={selectedEmployeeToEdit?.date_of_birth}
+              value={dob}
             />
           </Grid>
           <Grid item xs={6}>
