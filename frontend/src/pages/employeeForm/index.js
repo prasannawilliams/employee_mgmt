@@ -29,8 +29,6 @@ const myHelper = {
 };
 
 export default function App(props) {
-  console.log("app rerender", props);
-
   const {
     createEmployee,
     employeeLoader,
@@ -58,10 +56,8 @@ export default function App(props) {
       date_of_birth: startDate,
       photo: photo,
     };
-    console.log("finalData", finalData);
-    console.log('%c selectedEmployeeToEdit Prasanna----->:','font-weight: bold', selectedEmployeeToEdit);
     selectedEmployeeToEdit
-      ? await updateEmployee(selectedEmployeeToEdit._id,finalData)
+      ? await updateEmployee(selectedEmployeeToEdit._id, finalData)
       : await createEmployee(finalData);
   };
 

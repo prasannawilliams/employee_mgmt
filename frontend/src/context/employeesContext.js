@@ -16,6 +16,7 @@ export const useEmployees = () => {
 export const EmployeeProvider = ({ children }) => {
   const [employees, setEmployees] = useState([]);
   const [employeeLoader, setEmployeeLoader] = useState(false);
+  const [employeeListLoader, setEmployeeListLoader] = useState(true);
   const [errorMsg, setErrMsg] = useState("");
   const [modalState, setModalState] = useState(false);
   const [selectedEmployeeToEdit, setSelectedEmployeeToEdit] = useState(null);
@@ -24,6 +25,7 @@ export const EmployeeProvider = ({ children }) => {
     (async () => {
       const getEmployees = await getEmployeesListMethod();
       setEmployees(getEmployees.data);
+      setEmployeeListLoader(false);
     })();
   }, []);
 
@@ -85,7 +87,8 @@ export const EmployeeProvider = ({ children }) => {
         manageState,
         selectedEmployeeToEdit,
         modalState,
-        errorMsg
+        errorMsg,
+        employeeListLoader
       }}
     >
       {children}

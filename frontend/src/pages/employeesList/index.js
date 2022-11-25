@@ -17,16 +17,14 @@ export default function EmployeeChip({
   handleDeleteEmployee,
 }) {
   const { name, age, address, email, photo } = data;
-  const {
-    employeeLoader,
-  } = useEmployees();
+  const { employeeLoader } = useEmployees();
 
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-           {name ? Array.from(name)[0].toUpperCase() : "A" }
+            {name ? Array.from(name)[0].toUpperCase() : "A"}
           </Avatar>
         }
         title={name}

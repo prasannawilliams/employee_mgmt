@@ -1,17 +1,17 @@
 const employeeModel = require("../../models/employee");
-const moment = require('moment');
-
+const moment = require("moment");
 
 //create employee controller
 exports.createEmployee = async (req, res) => {
-  console.log('%c req.files ----->:','font-weight: bold', req.files);  
+  console.log("%c req.files ----->:", "font-weight: bold", req.files);
   const data = new employeeModel({
     name: req.body.name,
     age: req.body.age,
     email: req.body.email,
     address: req.body.address,
-    photo: "https://images.squarespace-cdn.com/content/v1/60f1a490a90ed8713c41c36c/1629223610791-LCBJG5451DRKX4WOB4SP/37-design-powers-url-structure.jpeg",
-    date_of_birth: req.body.date_of_birth
+    photo:
+      "https://images.squarespace-cdn.com/content/v1/60f1a490a90ed8713c41c36c/1629223610791-LCBJG5451DRKX4WOB4SP/37-design-powers-url-structure.jpeg",
+    date_of_birth: req.body.date_of_birth,
   });
 
   try {
@@ -27,7 +27,8 @@ exports.updateEmployeeById = async (req, res) => {
   try {
     const id = req.query.id;
     let updatedData = req.body;
-    updatedData.photo = "https://images.squarespace-cdn.com/content/v1/60f1a490a90ed8713c41c36c/1629223610791-LCBJG5451DRKX4WOB4SP/37-design-powers-url-structure.jpeg"
+    updatedData.photo =
+      "https://images.squarespace-cdn.com/content/v1/60f1a490a90ed8713c41c36c/1629223610791-LCBJG5451DRKX4WOB4SP/37-design-powers-url-structure.jpeg";
     const options = { new: true };
     const result = await employeeModel.findByIdAndUpdate(
       id,

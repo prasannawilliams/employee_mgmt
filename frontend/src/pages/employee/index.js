@@ -5,6 +5,7 @@ import EmployeeForm from "../employeeForm";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import { useEmployees } from "../../context/employeesContext";
+import ActivityIndicator from "../../components/activityIndicator";
 
 const style = {
   position: "absolute",
@@ -19,21 +20,32 @@ const style = {
 };
 
 const Home = () => {
-  const { employees,manageState,setModalState,modalState,deleteEmployee } = useEmployees();
+  const {
+    employees,
+    manageState,
+    setModalState,
+    modalState,
+    deleteEmployee,
+    employeeListLoader,
+  } = useEmployees();
   const handleOpen = () => setModalState(true);
   const handleClose = () => setModalState(false);
 
   const handleEditEmployee = async (data) => {
-    await manageState({selectedEmployeeToEdit:data});
-    handleOpen()
+    await manageState({ selectedEmployeeToEdit: data });
+    handleOpen();
   };
 
   const handleDeleteEmployee = async (id) => {
-    console.log('%c id Prasanna----->:','font-weight: bold', id);
     await deleteEmployee(id);
   };
 
-  if (!employees) return <div>Loading...</div>;
+  if (employeeListLoader)
+    return (
+      <div>
+        <ActivityIndicator />
+      </div>
+    );
   return (
     <div className="home">
       <div className="home__container">

@@ -1,6 +1,5 @@
-const routes = require('express').Router()
+const routes = require("express").Router();
 const employeeController = require("../controllers/employeeController");
-
 
 // +-------------------------------------------------------------------------+
 // | EMPLOYEE APIS                                                            |
@@ -12,4 +11,3 @@ routes.get("/getAllEmployees", employeeController.getAllEmployees);
 routes.delete("/deleteEmployeeById", employeeController.deleteEmployeeById);
 
 module.exports = routes;
-
