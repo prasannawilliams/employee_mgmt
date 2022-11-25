@@ -1,0 +1,38 @@
+
+.upload-btn-container {
+  /* display: flex; */
+}
+
+.btn-styles {
+   padding: 12px 25px;
+   border-radius: 10px;
+   background-color: grey;
+   text-transform: capitalize;
+   /* color: $btn-secondary-text; */
+   /* font-size: $font-size-13; */
+   /* line-height: $line-height-1; */
+   font-weight: 500;
+   white-space: nowrap;
+ }
+
+.btn-styles:hover {
+   background-color: 'gray'
+   /* opacity: 0.8; */
+ }
+
+.filename-uploaded {
+  padding: 0px 10px;
+  font-size: 12px;
+  display: block;
+  width: 300px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  align-self: center;
+  margin-top: 20px;
+}
+
+.clear-file {
+  align-self: center;
+  cursor: pointer;
+}

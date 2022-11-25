@@ -3,6 +3,8 @@ const cors = require('cors');
 const express = require('express');
 const mongoose = require('mongoose');
 const routes = require('./src/routes');
+const bodyParser = require('body-parser');
+const fileUpload = require('express-fileupload');
 
 const mongoString = process.env.DATABASE_URL;
 mongoose.connect(mongoString);
@@ -17,7 +19,9 @@ database.once('connected', () => {
 })
 const app = express();
 app.use(cors())
+app.use(fileUpload());
 app.use(express.json());
+app.use(bodyParser.json());
 
 app.use(routes)
 
