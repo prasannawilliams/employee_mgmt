@@ -3,7 +3,6 @@ const moment = require("moment");
 
 //create employee controller
 exports.createEmployee = async (req, res) => {
-  console.log("%c req.files ----->:", "font-weight: bold", req.files);
   const data = new employeeModel({
     name: req.body.name,
     age: req.body.age,
