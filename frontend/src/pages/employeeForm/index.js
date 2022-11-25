@@ -36,7 +36,7 @@ export default function App(props) {
     updateEmployee,
   } = useEmployees();
 
-  const [dob, setDob] = React.useState(new Date(selectedEmployeeToEdit?.date_of_birth) || new Date());
+  const [dob, setDob] = React.useState(selectedEmployeeToEdit && selectedEmployeeToEdit?.date_of_birth ? new Date(selectedEmployeeToEdit?.date_of_birth) : new Date());
   const [photo, setPhoto] = React.useState(null);
 
   const { control, handleSubmit } = useForm({
